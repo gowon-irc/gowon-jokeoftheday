@@ -4,6 +4,7 @@ go 1.17
 
 require (
 	github.com/eclipse/paho.mqtt.golang v1.3.5
+	github.com/gowon-irc/go-gowon v0.0.0-20211014195657-9f572326fc3e
 	github.com/gowon-irc/gowon v0.0.0-20211012014610-ece6c2510654
 	github.com/jessevdk/go-flags v1.5.0
 	github.com/stretchr/testify v1.7.0

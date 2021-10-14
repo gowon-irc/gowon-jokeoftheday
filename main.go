@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"log"
 	"os"
@@ -10,7 +9,7 @@ import (
 	"time"
 
 	mqtt "github.com/eclipse/paho.mqtt.golang"
-	"github.com/gowon-irc/gowon/pkg/message"
+	"github.com/gowon-irc/go-gowon"
 	"github.com/jessevdk/go-flags"
 )
 
@@ -22,6 +21,16 @@ type Options struct {
 const (
 	mqttConnectRetryInternal = 5 * time.Second
 )
+
+func jodHandler(m gowon.Message) (string, error) {
+	out, err := jod()
+
+	if err != nil {
+		return "", err
+	}
+
+	return out, nil
+}
 
 func main() {
 	opts := Options{}
@@ -41,38 +50,9 @@ func main() {
 		panic(token.Error())
 	}
 
-	c.Subscribe("/gowon/input", 0, func(client mqtt.Client, msg mqtt.Message) {
-		ms, err := message.CreateMessageStruct(msg.Payload())
-		if err != nil {
-			log.Print(err)
-
-			return
-		}
-
-		var out string
-
-		switch ms.Command {
-		case "jod":
-			out, err = jod()
-		default:
-			return
-		}
-
-		if err != nil {
-			log.Print(err)
-			return
-		}
-
-		ms.Module = "jokeoftheday"
-		ms.Msg = out
-		mb, err := json.Marshal(ms)
-		if err != nil {
-			log.Print(err)
-
-			return
-		}
-		client.Publish("/gowon/output", 0, false, mb)
-	})
+	mr := gowon.NewMessageRouter()
+	mr.AddCommand("jod", jodHandler)
+	mr.Subscribe(c, "gowon-jokeoftheday")
 
 	sigs := make(chan os.Signal, 1)
 	signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)
