@@ -15,6 +15,7 @@ github.com/gowon-irc/go-gowon v0.0.0-20211016234342-d666c7430ea9/go.mod h1:iY2WK
 github.com/gowon-irc/gowon v0.0.0-20211012014610-ece6c2510654 h1:xJ2w8gizoZ+7LLE1dPeLUt8mddzI9pknOvAdO4iY9VA=
 github.com/gowon-irc/gowon v0.0.0-20211012014610-ece6c2510654/go.mod h1:Qx8xz3LnjqnCxG6gTrKW6IWDdl4FTLvQVmBZEI5BAzk=
 github.com/gowon-irc/gowon v0.0.0-20211016233823-aed373c68410/go.mod h1:miy2+UcY7/4/umffoRdro+dO9vRaGMA3LwTv61Xc6LM=
+github.com/gowon-irc/gowon v0.0.0-20211017030842-53fc0a25ccb9/go.mod h1:bFDKGJICHvE2i1gBWWJX+ha1LEcfx/AXzt1pm0/ZWh4=
 github.com/jessevdk/go-flags v1.5.0 h1:1jKYvbxEjfUl0fmqTCOfonvskHHXMjBySTLW4y9LFvc=
 github.com/jessevdk/go-flags v1.5.0/go.mod h1:Fw0T6WPc1dYxT4mKEZRfG5kJhaTDP9pj1c2EWnYs/m4=
 github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
