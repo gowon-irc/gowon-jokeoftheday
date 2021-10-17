@@ -1,4 +1,4 @@
-module github.com/gowon-irc/gowon-jokeoftheday
+module github.com/gowon-irc/gowon-jod
 
 go 1.17
 

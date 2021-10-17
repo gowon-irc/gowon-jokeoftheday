@@ -1,1 +1,1 @@
-# gowon-jokeoftheday
+# gowon-jod
